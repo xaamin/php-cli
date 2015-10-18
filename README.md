@@ -1,4 +1,4 @@
-## Ubuntu 14.04 dockerfile
+## PHP dockerfile
 This repository contains **Dockerfile** of PHP5 Docker's [automated build](https://hub.docker.com/r/xaamin/php)
 
 ### Base docker image
