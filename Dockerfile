@@ -32,4 +32,4 @@ RUN apt-get -y update \
 RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis
 
 # Default command
-CMD ["/bin/bash"]
+CMD ["/usr/bin/php"]
