@@ -5,7 +5,8 @@ MAINTAINER Benjamín Martínez Mateos <bmxamin@gmail.com>
 RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C \
     && apt-get -y update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -y install php5-cli \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -y install php5 \
+        php5-cli \
     	php5-json \
     	php5-gd \
     	php5-readline \
