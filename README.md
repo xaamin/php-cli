@@ -1,4 +1,4 @@
-## PHP dockerfile
+## PHP 5.6 CLI dockerfile
 This repository contains **Dockerfile** of PHP5 CLI Docker's [automated build](https://hub.docker.com/r/xaamin/php-cli)
 
 ### Base docker image
