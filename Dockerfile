@@ -5,8 +5,7 @@ MAINTAINER Benjamín Martínez Mateos <bmxamin@gmail.com>
 RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C \
     && apt-get -y update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -y install php5 \
-        php5-cli \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -y install php5-cli \
     	php5-json \
     	php5-gd \
     	php5-readline \
@@ -26,6 +25,9 @@ RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /e
         php5-pgsql \
         php5-redis \
         php5-sqlite \
+        php5-xdebug \
+        php5-xmlrpc \
+        php5-xcache \
 
 	# Remove temp files
 	&& apt-get clean \
@@ -35,4 +37,4 @@ RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /e
 RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis
 
 # Default command
-CMD ["/usr/bin/php"]
+CMD ["/usr/bin/php", "-a"]
