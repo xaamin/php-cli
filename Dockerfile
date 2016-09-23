@@ -37,9 +37,13 @@ RUN apt-get -y update \
 	&& apt-get clean \
     && apt-get -y autoremove \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/7.0/cli/php.ini
+
+# Defines the default timezone used by the date functions
+ENV DATE_TIMEZONE America/Mexico_City
 
 # Enable modules
-RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis
+# RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis
 
 # Default command
 CMD ["/usr/bin/php", "-a"]
