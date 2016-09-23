@@ -46,11 +46,7 @@ RUN apt-get -y update \
 ENV DATE_TIMEZONE America/Mexico_City
 
 # Enable modules
-# RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis
-
-RUN /bin/ls -la /sbin/p*
-
-RUN /bin/ls -la /usr/sbin/p*
+RUN phpenmod readline mcrypt mongo mssql pgsql sqlite3 redis
 
 # Default command
 CMD ["/usr/bin/php", "-a"]
