@@ -1,36 +1,41 @@
-FROM xaamin/ubuntu
-MAINTAINER Benjamín Martínez Mateos <bmxamin@gmail.com>
+FROM xaamin/ubuntu:16.04
+MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 
-# Install PHP5 AND popular required extensions
-RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C \
-    && apt-get -y update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -y install php5-cli \
-    	php5-json \
-    	php5-gd \
-    	php5-readline \
-    	php5-curl \
-        php5-geoip \
-        php5-imagick \
-        php5-imap \
-        php5-ldap \
-    	php5-mcrypt \
-        php5-json \    
-        php5-memcache \
-        php5-memcached \
-        php5-mcrypt \
-        php5-mongo \
-        php5-mssql \
-        php5-mysql \
-        php5-pgsql \
-        php5-redis \
-        php5-sqlite \
-        php5-xdebug \
-        php5-xmlrpc \
-        php5-xcache \
+# Install PHP7 AND popular required extensions
+RUN apt-get -y update \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -y install php7.0-cli \ 
+        php7.0-bz2 \
+        php7.0-common \
+        php7.0-curl \
+        php7.0-gd \
+        php7.0-gmp \
+        php7.0-imap \
+        php7.0-ldap \
+    	php7.0-json \
+        php7.0-mbstring \
+        php7.0-mcrypt \
+        php7.0-mysql \
+        php7.0-opcache \
+        php7.0-pgsql \
+    	php7.0-readline \
+        php7.0-sybase \
+        php7.0-soap \
+        php7.0-sqlite3 \  
+        php7.0-xml \   
+        php7.0-xmlrpc \
+        php7.0-xsl \
+        php7.0-zip \
+
+        php-geoip \
+        php-imagick \
+        php-memcached \
+        php-mongodb \
+        php-redis \
+        php-xdebug \
 
 	# Remove temp files
 	&& apt-get clean \
+    && apt-get -y autoremove \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Enable modules
