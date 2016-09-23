@@ -45,6 +45,12 @@ RUN apt-get -y update \
 # Defines the default timezone used by the date functions
 ENV DATE_TIMEZONE America/Mexico_City
 
+# Set composer home
+ENV COMPOSER_HOME /root/composer
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Enable modules
 RUN phpenmod gmp iconv mcrypt mongodb pdo pgsql sqlite3 readline redis xml xsl
 
