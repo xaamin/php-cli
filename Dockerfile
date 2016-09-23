@@ -28,13 +28,25 @@ RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /e
         php5-xdebug \
         php5-xmlrpc \
         php5-xcache \
+        php5-gmp \
+        php5-xsl \
 
 	# Remove temp files
 	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php5/cli/php.ini
+
+# Defines the default timezone used by the date functions
+ENV DATE_TIMEZONE America/Mexico_City
+
+# Set composer home
+ENV COMPOSER_HOME /root/composer
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Enable modules
-RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis
+RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis gmp xsl
 
 # Default command
 CMD ["/usr/bin/php", "-a"]
