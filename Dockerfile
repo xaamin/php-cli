@@ -10,6 +10,7 @@ RUN apt-get -y update \
         php7.0-gd \
         php7.0-gmp \
         php7.0-imap \
+        php7.0-intl \
         php7.0-ldap \
     	php7.0-json \
         php7.0-mbstring \
@@ -17,10 +18,12 @@ RUN apt-get -y update \
         php7.0-mysql \
         php7.0-opcache \
         php7.0-pgsql \
+        php7.0-ps \
     	php7.0-readline \
         php7.0-sybase \
         php7.0-soap \
-        php7.0-sqlite3 \  
+        php7.0-sqlite3 \
+        php7.0-tidy \  
         php7.0-xml \   
         php7.0-xmlrpc \
         php7.0-xsl \
@@ -44,6 +47,10 @@ ENV DATE_TIMEZONE America/Mexico_City
 
 # Enable modules
 # RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis
+
+RUN /bin/ls -la /sbin/p*
+
+RUN /bin/ls -la /usr/sbin/p*
 
 # Default command
 CMD ["/usr/bin/php", "-a"]
