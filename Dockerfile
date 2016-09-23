@@ -4,6 +4,7 @@ MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 # Install PHP7 AND popular required extensions
 RUN apt-get -y update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -y install php7.0-cli \ 
+        --no-install-recommends \
         php7.0-bz2 \
         php7.0-common \
         php7.0-curl \
