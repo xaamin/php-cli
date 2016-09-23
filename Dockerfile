@@ -36,7 +36,7 @@ RUN apt-get -y update \
 	# Remove temp files
 	&& apt-get clean \
     && apt-get -y autoremove \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/7.0/cli/php.ini
 
 # Defines the default timezone used by the date functions
