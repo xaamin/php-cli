@@ -41,7 +41,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
 	&& apt-get clean \
     && apt-get -y autoremove \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php5/cli/php.ini
+    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/5.6/cli/php.ini
 
 # Defines the default timezone used by the date functions
 ENV DATE_TIMEZONE America/Mexico_City
