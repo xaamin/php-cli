@@ -37,8 +37,6 @@ RUN apt-get -y update \
         php-redis \
         php-xdebug \
 
-        phpunit \
-
 	# Remove temp files
 	&& apt-get clean \
     && apt-get -y autoremove \
