@@ -6,12 +6,12 @@ This repository contains **Dockerfile** of PHP5 CLI Docker's [automated build](h
 
 ### Installation
 * Install [Docker](https://www.docker.com)
-* Download automated build from [Docker Hub](https://hub.docker.com/r/xaamin/php) `docker pull xaamin/php-cli`
+* Download automated build from [Docker Hub](https://hub.docker.com/r/xaamin/php) `docker pull xaamin/php-cli:5.6`
 
 ### Manual build
-* Build an image from Dockerfile `docker build -t xaamin/php https://github.com/xaamin/php-cli.git`
+* Build an image from Dockerfile `docker build -t xaamin/php-cli:5.6 https://github.com/xaamin/php-cli.git`
 
 ### Usage
 ```
-	docker run --rm -it xaamin/php-cli 
+	docker run --rm -it xaamin/php-cli:5.6
 ```

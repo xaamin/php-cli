@@ -52,6 +52,11 @@ ENV COMPOSER_HOME /root/composer
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Install phpunit and put binary into $PATH
+RUN curl -sSLo phpunit.phar https://phar.phpunit.de/phpunit.phar \
+    && chmod 755 phpunit.phar \
+    && mv phpunit.phar /usr/local/bin/phpunit
+
 # Enable modules
 RUN phpenmod gmp iconv mcrypt mongodb pdo pgsql sqlite3 readline redis xml xsl
 
