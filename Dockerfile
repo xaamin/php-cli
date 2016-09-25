@@ -4,7 +4,6 @@ MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 # Install PHP7 AND popular required extensions
 RUN apt-get -y update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -y install \
-        --no-install-recommends \
         php7.0-cli \ 
         php7.0-bz2 \
         php7.0-common \
@@ -37,6 +36,9 @@ RUN apt-get -y update \
         php-mongodb \
         php-redis \
         php-xdebug \
+        php-yaml \
+
+        phpunit \
 
 	# Remove temp files
 	&& apt-get clean \
@@ -54,7 +56,7 @@ ENV COMPOSER_HOME /root/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Enable modules
-RUN phpenmod gmp iconv mcrypt mongodb pdo pgsql sqlite3 readline redis xml xsl
+RUN phpenmod gmp iconv mcrypt mongodb pdo pgsql sqlite3 readline redis xml xsl yaml
 
 # Default command
 CMD ["/usr/bin/php", "-a"]
