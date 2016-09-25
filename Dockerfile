@@ -1,38 +1,45 @@
 FROM xaamin/ubuntu
-MAINTAINER Benjamín Martínez Mateos <bmxamin@gmail.com>
+MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 
-# Install PHP5 AND popular required extensions
-RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C \
+# Install PHP5.6 AND popular required extensions
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
     && apt-get -y update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -y install php5-cli \
-    	php5-json \
-    	php5-gd \
-    	php5-readline \
-    	php5-curl \
-        php5-geoip \
-        php5-imagick \
-        php5-imap \
-        php5-ldap \
-    	php5-mcrypt \
-        php5-json \    
-        php5-memcache \
-        php5-memcached \
-        php5-mcrypt \
-        php5-mongo \
-        php5-mssql \
-        php5-mysql \
-        php5-pgsql \
-        php5-redis \
-        php5-sqlite \
-        php5-xdebug \
-        php5-xmlrpc \
-        php5-xcache \
-        php5-gmp \
-        php5-xsl \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -y install \
+        php5.6-cli \ 
+        php5.6-bz2 \
+        php5.6-common \
+        php5.6-curl \
+        php5.6-gd \
+        php5.6-gmp \
+        php5.6-imap \
+        php5.6-intl \
+        php5.6-ldap \
+        php5.6-json \
+        php5.6-mbstring \
+        php5.6-mcrypt \
+        php5.6-mysql \
+        php5.6-opcache \
+        php5.6-pgsql \
+        php5.6-readline \
+        php5.6-sybase \
+        php5.6-soap \
+        php5.6-sqlite3 \
+        php5.6-tidy \  
+        php5.6-xml \   
+        php5.6-xmlrpc \
+        php5.6-xsl \
+        php5.6-zip \
+
+        php-geoip \
+        php-imagick \
+        php-memcached \
+        php-mongodb \
+        php-redis \
+        php-xdebug \
 
 	# Remove temp files
 	&& apt-get clean \
+    && apt-get -y autoremove \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php5/cli/php.ini
 
@@ -46,7 +53,7 @@ ENV COMPOSER_HOME /root/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Enable modules
-RUN php5enmod readline mcrypt mongo mssql pgsql sqlite3 redis gmp xsl
+RUN phpenmod gmp iconv mcrypt mongodb pdo pgsql sqlite3 readline redis xml xsl yaml
 
 # Default command
 CMD ["/usr/bin/php", "-a"]
