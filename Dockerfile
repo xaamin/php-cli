@@ -36,7 +36,6 @@ RUN apt-get -y update \
         php-mongodb \
         php-redis \
         php-xdebug \
-        php-yaml \
 
         phpunit \
 
