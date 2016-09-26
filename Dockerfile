@@ -2,7 +2,8 @@ FROM xaamin/ubuntu:16.04
 MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 
 # Install PHP7 AND popular required extensions
-RUN apt-get -y update \
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
+    && apt-get -y update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -y install \
         php7.1-cli \ 
         php7.1-bz2 \
