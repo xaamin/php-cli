@@ -4,31 +4,31 @@ MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 # Install PHP7 AND popular required extensions
 RUN apt-get -y update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -y install \
-        php7.0-cli \ 
-        php7.0-bz2 \
-        php7.0-common \
-        php7.0-curl \
-        php7.0-gd \
-        php7.0-gmp \
-        php7.0-imap \
-        php7.0-intl \
-        php7.0-ldap \
-    	php7.0-json \
-        php7.0-mbstring \
-        php7.0-mcrypt \
-        php7.0-mysql \
-        php7.0-opcache \
-        php7.0-pgsql \
-        php7.0-ps \
-    	php7.0-readline \
-        php7.0-sybase \
-        php7.0-soap \
-        php7.0-sqlite3 \
-        php7.0-tidy \  
-        php7.0-xml \   
-        php7.0-xmlrpc \
-        php7.0-xsl \
-        php7.0-zip \
+        php7.1-cli \ 
+        php7.1-bz2 \
+        php7.1-common \
+        php7.1-curl \
+        php7.1-gd \
+        php7.1-gmp \
+        php7.1-imap \
+        php7.1-intl \
+        php7.1-ldap \
+    	php7.1-json \
+        php7.1-mbstring \
+        php7.1-mcrypt \
+        php7.1-mysql \
+        php7.1-opcache \
+        php7.1-pgsql \
+        php7.1-ps \
+    	php7.1-readline \
+        php7.1-sybase \
+        php7.1-soap \
+        php7.1-sqlite3 \
+        php7.1-tidy \  
+        php7.1-xml \   
+        php7.1-xmlrpc \
+        php7.1-xsl \
+        php7.1-zip \
 
         php-geoip \
         php-imagick \
@@ -41,7 +41,7 @@ RUN apt-get -y update \
 	&& apt-get clean \
     && apt-get -y autoremove \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/7.0/cli/php.ini
+    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/7.1/cli/php.ini
 
 # Defines the default timezone used by the date functions
 ENV DATE_TIMEZONE America/Mexico_City
