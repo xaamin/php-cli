@@ -19,7 +19,6 @@ RUN apt-get -y update \
         php7.1-mysql \
         php7.1-opcache \
         php7.1-pgsql \
-        php7.1-ps \
     	php7.1-readline \
         php7.1-sybase \
         php7.1-soap \
