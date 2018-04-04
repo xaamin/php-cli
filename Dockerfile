@@ -3,7 +3,7 @@ MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 
 # Install PHP7 AND popular required extensions
 RUN apt-get -y update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y install \
         php7.0-cli \
         php7.0-bz2 \
         php7.0-common \
@@ -13,14 +13,14 @@ RUN apt-get -y update \
         php7.0-imap \
         php7.0-intl \
         php7.0-ldap \
-    	php7.0-json \
+        php7.0-json \
         php7.0-mbstring \
         php7.0-mcrypt \
         php7.0-mysql \
         php7.0-opcache \
         php7.0-pgsql \
         php7.0-ps \
-    	php7.0-readline \
+        php7.0-readline \
         php7.0-sybase \
         php7.0-soap \
         php7.0-sqlite3 \
@@ -35,10 +35,10 @@ RUN apt-get -y update \
         php-mongodb \
         php-redis \
         php-xdebug \
-	# Remove temp files
-	&& apt-get clean \
+    # Remove temp files
+    && apt-get clean \
     && apt-get -y autoremove \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/7.0/cli/php.ini
 
 # Defines the default timezone used by the date functions
