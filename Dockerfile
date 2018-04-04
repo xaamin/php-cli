@@ -4,8 +4,8 @@ MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 # Install PHP5.6 AND popular required extensions
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
     && apt-get -y update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -y install \
-        php5.6-cli \ 
+    && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+        php5.6-cli \
         php5.6-bz2 \
         php5.6-common \
         php5.6-curl \
@@ -24,30 +24,30 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
         php5.6-sybase \
         php5.6-soap \
         php5.6-sqlite3 \
-        php5.6-tidy \  
-        php5.6-xml \   
+        php5.6-tidy \
+        php5.6-xml \
         php5.6-xmlrpc \
         php5.6-xsl \
         php5.6-zip \
-
         php-geoip \
         php-imagick \
         php-memcached \
         php-mongodb \
         php-redis \
         php-xdebug \
-
-	# Remove temp files
-	&& apt-get clean \
+    # Remove temp files
+    && apt-get clean \
     && apt-get -y autoremove \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/5.6/cli/php.ini
 
 # Defines the default timezone used by the date functions
 ENV DATE_TIMEZONE America/Mexico_City
 
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
 # Set composer home
-ENV COMPOSER_HOME /root/composer
+ENV COMPOSER_HOME /tmp
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
