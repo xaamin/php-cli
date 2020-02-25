@@ -8,7 +8,6 @@ This repository contains **Dockerfile** of PHP7.0 CLI Docker's [automated build]
 * Install [Docker](https://www.docker.com)
 * Download automated build from [Docker Hub](https://hub.docker.com/r/xaamin/php) `docker pull xaamin/php-cli:7.0`
 
-
 ### Usage
 ```
 	docker run --rm -it xaamin/php-cli:7.0 bash
