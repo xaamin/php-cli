@@ -1,4 +1,4 @@
-FROM xaamin/ubuntu:16.04
+FROM xaamin/ubuntu:18.04
 MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 
 # Install PHP7 AND popular required extensions
