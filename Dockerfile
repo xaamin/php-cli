@@ -57,7 +57,7 @@ RUN curl -sSLo phpunit.phar https://phar.phpunit.de/phpunit.phar \
     && mv phpunit.phar /usr/local/bin/phpunit
 
 # Enable modules
-RUN phpenmod gmp iconv mcrypt mongodb pdo pgsql sqlite3 readline redis xml xsl
+RUN phpenmod gmp iconv mongodb pdo pgsql sqlite3 readline redis xml xsl
 RUN phpdismod xdebug
 
 # Default command
