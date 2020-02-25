@@ -1,12 +1,12 @@
 ## PHP CLI dockerfile
-This repository contains **Dockerfile** of PHP7.2 CLI Docker's [automated build](https://hub.docker.com/r/xaamin/php-cli)
+This repository contains **Dockerfile** of PHP7.3 CLI Docker's [automated build](https://hub.docker.com/r/xaamin/php-cli)
 
 ### Base docker image
 * [xaamin/ubuntu](https://registry.hub.docker.com/r/xaamin/ubuntu)
 
 ### Installation
 * Install [Docker](https://www.docker.com)
-* Download automated build from [Docker Hub](https://hub.docker.com/r/xaamin/php) `docker pull xaamin/php-cli:7.2`
+* Download automated build from [Docker Hub](https://hub.docker.com/r/xaamin/php) `docker pull xaamin/php-cli:7.3`
 
 ### Manual build
 * Build an image from Dockerfile `docker build -t xaamin/php https://github.com/xaamin/php-cli.git`
