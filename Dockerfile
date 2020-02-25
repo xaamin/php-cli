@@ -1,8 +1,9 @@
-FROM xaamin/ubuntu:16.04
+FROM xaamin/ubuntu:18.04
 MAINTAINER Benjamín Martínez Mateos <xaamin@outlook.com>
 
 # Install PHP7 AND popular required extensions
-RUN apt-get -y update \
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
+    && apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install \
         php7.0-cli \
         php7.0-bz2 \
@@ -59,6 +60,7 @@ RUN curl -sSLo phpunit.phar https://phar.phpunit.de/phpunit.phar \
 
 # Enable modules
 RUN phpenmod gmp iconv mcrypt mongodb pdo pgsql sqlite3 readline redis xml xsl
+RUN phpdismod xdebug
 
 # Default command
 CMD ["/usr/bin/php", "-a"]
