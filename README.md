@@ -1,5 +1,5 @@
 ## PHP CLI dockerfile
-This repository contains **Dockerfile** of PHP7.4 CLI Docker's [automated build](https://hub.docker.com/r/xaamin/php-cli)
+This repository contains **Dockerfile** of PHP CLI Docker's [automated build](https://hub.docker.com/r/xaamin/php-cli)
 
 ### Base docker image
 * [xaamin/ubuntu](https://registry.hub.docker.com/r/xaamin/ubuntu)
