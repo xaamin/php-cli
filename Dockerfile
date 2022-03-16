@@ -28,12 +28,12 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
         php7.4-xmlrpc \
         php7.4-xsl \
         php7.4-zip \
-        php-geoip \
-        php-imagick \
-        php-memcached \
-        php-mongodb \
-        php-redis \
-        php-xdebug \
+        php7.4-geoip \
+        php7.4-imagick \
+        php7.4-memcached \
+        php7.4-mongodb \
+        php7.4-redis \
+        php7.4-xdebug \
     # Remove temp files
     && apt-get clean \
     && apt-get -y autoremove \
