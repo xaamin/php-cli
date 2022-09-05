@@ -6,9 +6,9 @@ This repository contains **Dockerfile** of PHP CLI Docker's [automated build](ht
 
 ### Installation
 * Install [Docker](https://www.docker.com)
-* Download automated build from [Docker Hub](https://hub.docker.com/r/xaamin/php) `docker pull xaamin/php-cli:8.0`
+* Download automated build from [Docker Hub](https://hub.docker.com/r/xaamin/php) `docker pull xaamin/php-cli:8.1`
 
 ### Usage
 ```
-	docker run --rm -it xaamin/php-cli:8.0 bash
+	docker run --rm -it xaamin/php-cli:8.1 bash
 ```

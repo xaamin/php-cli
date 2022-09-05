@@ -5,38 +5,38 @@ LABEL maintainer="Benjamín Martínez Mateos <xaamin@outlook.com>"
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
     && apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install \
-        php8.0-cli \
-        php8.0-bz2 \
-        php8.0-common \
-        php8.0-curl \
-        php8.0-gd \
-        php8.0-gmp \
-        php8.0-imap \
-        php8.0-intl \
-        php8.0-ldap \
-        php8.0-mbstring \
-        php8.0-mysql \
-        php8.0-opcache \
-        php8.0-pgsql \
-        php8.0-readline \
-        php8.0-sybase \
-        php8.0-soap \
-        php8.0-sqlite3 \
-        php8.0-tidy \
-        php8.0-xml \
-        php8.0-xmlrpc \
-        php8.0-xsl \
-        php8.0-zip \
-        php8.0-imagick \
-        php8.0-memcached \
-        php8.0-mongodb \
-        php8.0-redis \
-        php8.0-xdebug \
+        php8.1-cli \
+        php8.1-bz2 \
+        php8.1-common \
+        php8.1-curl \
+        php8.1-gd \
+        php8.1-gmp \
+        php8.1-imap \
+        php8.1-intl \
+        php8.1-ldap \
+        php8.1-mbstring \
+        php8.1-mysql \
+        php8.1-opcache \
+        php8.1-pgsql \
+        php8.1-readline \
+        php8.1-sybase \
+        php8.1-soap \
+        php8.1-sqlite3 \
+        php8.1-tidy \
+        php8.1-xml \
+        php8.1-xmlrpc \
+        php8.1-xsl \
+        php8.1-zip \
+        php8.1-imagick \
+        php8.1-memcached \
+        php8.1-mongodb \
+        php8.1-redis \
+        php8.1-xdebug \
     # Remove temp files
     && apt-get clean \
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/8.0/cli/php.ini
+    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/8.1/cli/php.ini
 
 # Defines the default timezone used by the date functions
 ENV DATE_TIMEZONE America/Mexico_City
