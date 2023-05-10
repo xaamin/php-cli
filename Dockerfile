@@ -1,7 +1,6 @@
-FROM xaamin/ubuntu:20.04
+FROM xaamin/ubuntu:22.04
 LABEL maintainer="Benjamín Martínez Mateos <xaamin@outlook.com>"
 
-# Install PHP7 AND popular required extensions
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
     && apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install \
