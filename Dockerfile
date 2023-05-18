@@ -7,8 +7,8 @@ LABEL maintainer="Benjamín Martínez Mateos <xaamin@outlook.com>"
 ARG tz
 ARG php_version
 
-ENV TZ=$tz
-ENV COMPOSER_HOME=/tmp
+ENV TZ $tz
+ENV COMPOSER_HOME /tmp
 
 RUN set -xe \
     && echo $TZ > /etc/timezone \
