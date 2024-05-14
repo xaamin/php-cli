@@ -1,5 +1,5 @@
 ARG tz='UTC'
-ARG php_version='8.2'
+ARG php_version='8.3'
 
 FROM xaamin/ubuntu:22.04
 LABEL maintainer="Benjamín Martínez Mateos <xaamin@outlook.com>"
@@ -42,6 +42,7 @@ RUN set -xe \
         php$php_version-memcached \
         php$php_version-mongodb \
         php$php_version-redis \
+        php$php_version-bcmath \
         php$php_version-xdebug \
     # Remove temp files
     && apt-get clean \
@@ -53,7 +54,7 @@ RUN set -xe \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Enable modules
-RUN phpenmod gmp iconv mongodb pdo pgsql sqlite3 readline redis xml xsl
+RUN phpenmod gmp iconv mongodb pdo pgsql sqlite3 readline redis xml xsl bcmath
 RUN phpdismod xdebug
 
 # Default command
