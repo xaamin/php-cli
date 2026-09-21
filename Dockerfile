@@ -1,14 +1,14 @@
 ARG tz='UTC'
-ARG php_version='8.3'
+ARG php_version='8.5'
 
-FROM xaamin/ubuntu:22.04
+FROM xaamin/ubuntu:latest
 LABEL maintainer="Benjamín Martínez Mateos <xaamin@outlook.com>"
 
 ARG tz
 ARG php_version
 
-ENV TZ $tz
-ENV COMPOSER_HOME /tmp
+ENV TZ=$tz
+ENV COMPOSER_HOME=/tmp
 
 RUN set -xe \
     && echo $TZ > /etc/timezone \
@@ -27,7 +27,6 @@ RUN set -xe \
         php$php_version-ldap \
         php$php_version-mbstring \
         php$php_version-mysql \
-        php$php_version-opcache \
         php$php_version-pgsql \
         php$php_version-readline \
         php$php_version-sybase \
